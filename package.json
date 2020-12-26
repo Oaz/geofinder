@@ -1,0 +1,27 @@
+{
+  "name": "geofinder",
+  "version": "1.0.0",
+  "description": "This library allows to find the area code for a given pair of coordinates.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oaz/geofinder.git"
+  },
+  "author": "oaz",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Oaz/geofinder/issues"
+  },
+  "homepage": "https://github.com/Oaz/geofinder#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "@timohausmann/quadtree-js": "^1.2.3",
+    "@turf/boolean-point-in-polygon": "^6.0.1",
+    "shapefile": "^0.6.6"
+  }
+}
