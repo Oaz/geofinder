@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@timohausmann/quadtree-js": "^1.2.3",
+    "@turf/bbox": "^6.0.1",
     "@turf/boolean-point-in-polygon": "^6.0.1",
     "shapefile": "^0.6.6"
   }
