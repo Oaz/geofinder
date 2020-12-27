@@ -15,8 +15,8 @@ const bboxToQT = function(bbox,userdata) {
 };
 
 class QuadtreeFeatures extends Features {
-  constructor(geodata) {
-    super(geodata);
+  constructor(geodata,propname) {
+    super(geodata,propname);
     this.tree = new Quadtree(bboxToQT(this.data.bbox),10,4);
     for (var i = 0; i < this.data.features.length; ++i) {
       var feature = this.data.features[i];
@@ -27,10 +27,10 @@ class QuadtreeFeatures extends Features {
     //console.log(this.tree);
   }
 
-  regionOf(lat,lng) {
+  areaOf(lat,lng) {
     var candidates = this.tree.retrieve({x:lng,y:lat,width:1,height:1});
     var features = candidates.map(c => c.data);
-    //console.log(`candidates for ${lat},${lng} are ${candidates.length}: ${features.map(f => f.properties.region)}`);
+    //console.log(`candidates for ${lat},${lng} are ${candidates.length}: ${features.map(f => f.properties[this.propname])}`);
     return this.findFeatureOf(features,lat,lng);
   }
 }

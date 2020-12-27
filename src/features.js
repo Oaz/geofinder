@@ -2,12 +2,14 @@
 const pointInPolygon = require("@turf/boolean-point-in-polygon").default;
 
 class Features {
-  constructor(features) {
+  constructor(features,propname) {
     this.data = features;
+    this.propname = propname;
     //console.log(this.data);
+    //console.log(this.data.features[0].properties);
   }
 
-  regionOf(lat,lng) {
+  areaOf(lat,lng) {
     return this.findFeatureOf(this.data.features,lat,lng);
   }
 
@@ -17,7 +19,7 @@ class Features {
       var feature = features[i];
       var result = pointInPolygon(pt,feature.geometry);
       if(result)
-        return feature.properties.region;
+        return feature.properties[this.propname];
     }
     return null;
   }

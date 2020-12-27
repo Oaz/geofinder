@@ -17,16 +17,16 @@ const cases = [
 ];
 
 test('straightforward find', async () => {
-  return createFinder('test/sample/france-regions-2016-contours-simplifies.shp')
+  return createFinder('test/sample/france-regions-2016-contours-simplifies.shp','region')
     .then(finder => {
-      cases.forEach(x => expect(finder.regionOf(x.lat, x.lng)).toBe(x.expected));
+      cases.forEach(x => expect(finder.areaOf(x.lat, x.lng)).toBe(x.expected));
     });
 });
 
 test('quadtree find', async () => {
-  return createFinder('test/sample/france-regions-2016-contours-simplifies.shp',true)
+  return createFinder('test/sample/france-regions-2016-contours-simplifies.shp','region',true)
     .then(finder => {
-      cases.forEach(x => expect(finder.regionOf(x.lat, x.lng)).toBe(x.expected));
+      cases.forEach(x => expect(finder.areaOf(x.lat, x.lng)).toBe(x.expected));
     });
 });
 
