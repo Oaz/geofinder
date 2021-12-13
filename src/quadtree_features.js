@@ -23,7 +23,6 @@ class QuadtreeFeatures extends Features {
       var bbox = computeBbox(feature);
       this.tree.insert(bboxToQT(bbox,feature));
     }
-    //console.log(this.tree);
   }
 
   areaOf(lat,lng) {
