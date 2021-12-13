@@ -21,7 +21,6 @@ class QuadtreeFeatures extends Features {
     for (var i = 0; i < this.data.features.length; ++i) {
       var feature = this.data.features[i];
       var bbox = computeBbox(feature);
-      //console.log(`bbox of ${feature.properties.region} is ${bbox}`);
       this.tree.insert(bboxToQT(bbox,feature));
     }
     //console.log(this.tree);
@@ -30,7 +29,6 @@ class QuadtreeFeatures extends Features {
   areaOf(lat,lng) {
     var candidates = this.tree.retrieve({x:lng,y:lat,width:1,height:1});
     var features = candidates.map(c => c.data);
-    //console.log(`candidates for ${lat},${lng} are ${candidates.length}: ${features.map(f => f.properties[this.propname])}`);
     return this.findFeatureOf(features,lat,lng);
   }
 }

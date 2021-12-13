@@ -5,8 +5,6 @@ class Features {
   constructor(features,propname) {
     this.data = features;
     this.propname = propname;
-    //console.log(this.data);
-    //console.log(this.data.features[0].properties);
   }
 
   areaOf(lat,lng) {
